@@ -1,9 +1,14 @@
+import Container from "./components/Container.jsx";
+
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/js/src/collapse.js";
 
 function App() {
   return (
     <>
-      <h1>Hola mundo</h1>
-    </> 
+      <Container/>
+    </>
   );
 }
 

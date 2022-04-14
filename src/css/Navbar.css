@@ -1,0 +1,8 @@
+.fixed-navbar{
+    position: fixed !important;
+    width: 100% !important;
+}
+
+.container-navbar {
+    max-width: 80rem !important;
+}

@@ -11,6 +11,9 @@
 .bg-purple {
     background-color: rgb(76, 18, 151) !important;
 }
+.bg-purple-dark {
+    background: rgb(53, 2, 119) !important;
+}
 .bg-grey {
     background-color: rgb(173, 173, 173) !important;
 }

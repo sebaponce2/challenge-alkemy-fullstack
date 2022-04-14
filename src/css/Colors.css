@@ -1,0 +1,36 @@
+
+/* Backgrounds */
+.bg-black {
+    background-color: black !important;
+}
+
+.bg-white {
+    background-color: white !important;
+}
+
+.bg-purple {
+    background-color: rgb(76, 18, 151) !important;
+}
+.bg-grey {
+    background-color: rgb(173, 173, 173) !important;
+}
+
+
+
+
+/* Fonts */
+.font-black {
+    color: black !important;
+}
+
+.font-white {
+    color: white !important;
+}
+
+.font-green {
+    color: rgb(14, 190, 14) !important;
+}
+.font-red {
+    color: red !important;
+}
+

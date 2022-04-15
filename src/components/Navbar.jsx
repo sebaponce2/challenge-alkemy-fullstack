@@ -9,7 +9,7 @@ const Navbar = () =>{
                     <div>
                         <ul className="navbar-nav">
                             <li className="nav-item font-poppins fw-bold">
-                                <a className="nav-link active font-white" aria-current="page" href="#">Cerrar sesión</a>
+                                <a className="nav-link active font-white" aria-current="page" href="#">Log out</a>
                             </li>
                         </ul>
                     </div>

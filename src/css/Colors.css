@@ -37,3 +37,11 @@
     color: red !important;
 }
 
+.font-gray {
+    color: rgb(177, 177, 177) !important;
+}
+
+.font-gray-dark {
+    color: rgb(98, 98, 98) !important;
+}
+

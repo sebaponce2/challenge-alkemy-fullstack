@@ -17,8 +17,14 @@
     overflow-y: visible;
     
 }
-.w-33 {
-    width: 33% !important;
+.w-45 {
+    width: 45% !important;
+}
+
+@media screen and (min-width: 768px) {
+    .w-16 {
+        width: 16% !important;
+    }
 }
 ::-webkit-scrollbar {
     width: 7px;
@@ -54,4 +60,18 @@
     .table-p {
         width: 60% !important; 
     }    
+}
+
+.button-incomes{ 
+    background-color: white !important;
+    font-weight: 600;
+    border-top-left-radius: 0.5rem !important;
+    border-bottom-left-radius: 0.5rem !important;
+    border-top-right-radius: 0.5rem !important;
+    border-bottom-right-radius: 0.5rem !important;
+}
+
+.button-incomes:hover{
+    background-color: rgb(38, 1, 71) !important;
+    color: white !important;
 }

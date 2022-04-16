@@ -4,7 +4,7 @@
 
 .table-p{
     margin: auto;
-    width: 90% !important;
+    width: 100% !important;
     height: 70vh !important;
     max-width: 50rem !important;
     margin-bottom: 5rem !important;
@@ -15,7 +15,11 @@
     overflow: scroll !important;
     overflow-x: hidden !important;
     overflow-y: visible;
-    
+}
+@media screen and (min-width: 762px) {
+    .table-p {
+        width:90% !important;
+    }
 }
 .w-45 {
     width: 45% !important;

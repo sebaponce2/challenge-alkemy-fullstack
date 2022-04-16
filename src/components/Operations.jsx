@@ -1,6 +1,7 @@
 // Component imports
 import { Link } from "react-router-dom";
 import { IoCloseSharp } from "react-icons/io5";
+import { FiEdit } from "react-icons/fi";
 
 // Css imports
 import "../css/Operations.css";
@@ -23,11 +24,11 @@ const Operations = () => {
                     <label className="d-block font-black font-poppins fw-bold pb-1 pt-4">Operation</label>
                     <div className="d-flex w-100">
                         <div className="d-flex">
-                            <label className="font-black my-auto font-poppins" name="income" for="income">Income</label>
+                            <label className="font-black my-auto font-poppins" name="income" htmlFor="income">Income</label>
                             <input className="d-block border-2 my-auto ms-2" type="radio" name="operation" id="income" value="0"/>
                         </div>
                         <div className="d-flex ps-5">
-                            <label className="font-black my-auto font-poppins" name="expense" for="expense">Expense</label>
+                            <label className="font-black my-auto font-poppins" name="expense" htmlFor="expense">Expense</label>
                             <input className="d-block border-2 my-auto ms-2" type="radio" name="operation" id="expense" value="1"/>
                         </div>
                     </div>
@@ -40,158 +41,295 @@ const Operations = () => {
             <section>
                 <h2 className="text-center mt-5 mb-4">Historial</h2>
                 <div className="bg-white table-p">
-                <div className="d-flex justify-content-between py-2 bg-purple-dark">
-
-                        <div className="w-16 font-black py-2 my-auto">
-                            <p className="fw-bold font-white ps-4 ps-md-5 my-auto font-black font-poppins">Operation</p>
+                    <div className="d-flex py-2 bg-purple-dark">
+                        <div className="sizing-operation-amount my-auto text-center">
+                            <p className="fw-bold font-white my-auto font-poppins">Operation</p>
                         </div>
-                        <div className="w-45 font-black text-center font-poppins font-black d-md-flex justify-content-between">
-                            <p className="m-0 fw-bold font-white my-auto ps-3">Date</p>
-                            <p className="m-0 fw-bold font-white my-auto pe-4">Concept</p>
+                        <div className="d-md-flex sizing-date-concept text-center font-poppins">
+                            <div className="w-100 my-auto text-center">
+                                <p className="fw-bold font-white my-auto">Date</p>
+                            </div>
+                            <div className="w-100 my-auto text-center">
+                                <p className="fw-bold font-white my-auto">Concept</p>
+                            </div>
                         </div>
-                        <div className="d-flex my-auto font-black pe-5">
-                            <p className="fw-bold font-white my-auto py-2 font-poppins font-poppins">Amount</p>
-                        </div>
-                    </div>
-
-                    <hr className="w-100 font-black my-0"/>
-                    <div className="d-flex justify-content-between py-2">
-                        <div className="w-16 font-black py-2 my-auto">
-                            <p className="fw-bold ps-4 ps-md-5 my-auto font-green font-poppins">Income</p>
-                        </div>
-                        <div className="w-45 font-black text-center font-poppins font-gray-dark d-md-flex justify-content-between">
-                            <p className="m-0 fw-bold my-auto">12-12-2020</p>
-                            <p className="m-0 fw-bold my-auto">Cumpleaños</p>
-                        </div>
-                        <div className="d-flex my-auto font-black">
-                            <p className="fw-bold my-auto py-2 font-poppins font-poppins">$3000</p>
-                            <p className="fs-4 my-auto font-gray pb-2 mx-3 delete"><IoCloseSharp/></p>
+                        <div className="sizing-operation-amount my-auto text-center d-flex">
+                            <div className="sizing-amount">
+                                <p className="fw-bold font-white my-auto py-2 font-poppins">Amount</p>
+                            </div>
+                            <div className="font-purple-black my-auto">
+                                <p>a</p>
+                            </div>
                         </div>
                     </div>
                     <hr className="w-100 font-black my-0"/>
-                    <div className="d-flex justify-content-between py-2">
-                        <div className="w-16 font-black py-2 my-auto">
-                            <p className="fw-bold ps-4 ps-md-5 my-auto font-green font-poppins">Income</p>
+                    <div className="d-flex py-2">
+                        <div className="sizing-operation-amount my-auto text-center">
+                            <p className="fw-bold my-auto font-green font-poppins">Income</p>
                         </div>
-                        <div className="w-45 font-black text-center font-poppins font-gray-dark d-md-flex justify-content-between">
-                            <p className="m-0 fw-bold my-auto">12-12-2020</p>
-                            <p className="m-0 fw-bold my-auto">Cumpleaños</p>
+                        <div className="d-md-flex sizing-date-concept text-center font-poppins text-center font-gray-dark">
+                            <div className="w-100 my-auto text-center">
+                                <p className="fw-bold my-auto">12-12-2020</p>
+                            </div>
+                            <div className="w-100 my-auto text-center">
+                                <p className="fw-bold my-auto">Cumpleaños</p>
+                            </div>
                         </div>
-                        <div className="d-flex my-auto font-black">
-                            <p className="fw-bold my-auto py-2 font-poppins font-poppins">$5000</p>
-                            <p className="fs-4 my-auto font-gray pb-2 mx-3 delete"><IoCloseSharp/></p>
-                        </div>
-                    </div>
-                    <hr className="w-100 font-black my-0"/>
-                    <div className="d-flex justify-content-between py-2">
-                        <div className="w-16 font-black py-2 my-auto">
-                            <p className="fw-bold ps-4 ps-md-5 my-auto font-red font-poppins">Expense</p>
-                        </div>
-                        <div className="w-45 font-black text-center font-poppins font-gray-dark d-md-flex justify-content-between">
-                            <p className="m-0 fw-bold my-auto">12-12-2020</p>
-                            <p className="m-0 fw-bold my-auto">Cumpleaños</p>
-                        </div>
-                        <div className="d-flex my-auto font-black">
-                            <p className="fw-bold my-auto py-2 font-poppins font-poppins">$3000</p>
-                            <p className="fs-4 my-auto font-gray pb-2 mx-3 delete"><IoCloseSharp/></p>
-                        </div>
-                    </div>
-                    <hr className="w-100 font-black my-0"/>
-                    <div className="d-flex justify-content-between py-2">
-                        <div className="w-16 font-black py-2 my-auto">
-                            <p className="fw-bold ps-4 ps-md-5 my-auto font-green font-poppins">Income</p>
-                        </div>
-                        <div className="w-45 font-black text-center font-poppins font-gray-dark d-md-flex justify-content-between">
-                            <p className="m-0 fw-bold my-auto">12-12-2020</p>
-                            <p className="m-0 fw-bold my-auto">Cumpleaños</p>
-                        </div>
-                        <div className="d-flex my-auto font-black">
-                            <p className="fw-bold my-auto py-2 font-poppins font-poppins">$3000</p>
-                            <p className="fs-4 my-auto font-gray pb-2 mx-3 delete"><IoCloseSharp/></p>
+                        <div className="d-flex my-auto font-black sizing-operation-amount text-center">
+                            <div className="sizing-amount my-auto">
+                                <p className="fw-bold my-auto py-2 font-poppins text-center my-auto">$3000</p>
+                            </div>
+                            <div className="d-flex">
+                                <div>
+                                    <p className="w-25 fs-4 my-auto font-gray pb-2 change"><FiEdit/></p>
+                                </div>
+                                <div>
+                                    <p className="w-25 fs-4 px-1 my-auto font-gray pb-2 delete"><IoCloseSharp/></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <hr className="w-100 font-black my-0"/>
-                    <div className="d-flex justify-content-between py-2">
-                        <div className="w-16 font-black py-2 my-auto">
-                            <p className="fw-bold ps-4 ps-md-5 my-auto font-red font-poppins">Expense</p>
+                    <div className="d-flex py-2">
+                        <div className="sizing-operation-amount my-auto text-center">
+                            <p className="fw-bold my-auto font-green font-poppins">Income</p>
                         </div>
-                        <div className="w-45 font-black text-center font-poppins font-gray-dark d-md-flex justify-content-between">
-                            <p className="m-0 fw-bold my-auto">12-12-2020</p>
-                            <p className="m-0 fw-bold my-auto">Cumpleaños</p>
+                        <div className="d-md-flex sizing-date-concept text-center font-poppins text-center font-gray-dark">
+                            <div className="w-100 my-auto text-center">
+                                <p className="fw-bold my-auto">12-12-2020</p>
+                            </div>
+                            <div className="w-100 my-auto text-center">
+                                <p className="fw-bold my-auto">Cumpleaños</p>
+                            </div>
                         </div>
-                        <div className="d-flex my-auto font-black">
-                            <p className="fw-bold my-auto py-2 font-poppins font-poppins">$3000</p>
-                            <p className="fs-4 my-auto font-gray pb-2 mx-3 delete"><IoCloseSharp/></p>
-                        </div>
-                    </div>
-                    <hr className="w-100 font-black my-0"/>
-                    <div className="d-flex justify-content-between py-2">
-                        <div className="w-16 font-black py-2 my-auto">
-                            <p className="fw-bold ps-4 ps-md-5 my-auto font-green font-poppins">Income</p>
-                        </div>
-                        <div className="w-45 font-black text-center font-poppins font-gray-dark d-md-flex justify-content-between">
-                            <p className="m-0 fw-bold my-auto">12-12-2020</p>
-                            <p className="m-0 fw-bold my-auto">Cumpleaños</p>
-                        </div>
-                        <div className="d-flex my-auto font-black">
-                            <p className="fw-bold my-auto py-2 font-poppins font-poppins">$3000</p>
-                            <p className="fs-4 my-auto font-gray pb-2 mx-3 delete"><IoCloseSharp/></p>
-                        </div>
-                    </div>
-                    <hr className="w-100 font-black my-0"/>
-                    <div className="d-flex justify-content-between py-2">
-                        <div className="w-16 font-black py-2 my-auto">
-                            <p className="fw-bold ps-4 ps-md-5 my-auto font-red font-poppins">Expense</p>
-                        </div>
-                        <div className="w-45 font-black text-center font-poppins font-gray-dark d-md-flex justify-content-between">
-                            <p className="m-0 fw-bold my-auto">12-12-2020</p>
-                            <p className="m-0 fw-bold my-auto">Cumpleaños</p>
-                        </div>
-                        <div className="d-flex my-auto font-black">
-                            <p className="fw-bold my-auto py-2 font-poppins font-poppins">$3000</p>
-                            <p className="fs-4 my-auto font-gray pb-2 mx-3 delete"><IoCloseSharp/></p>
+                        <div className="d-flex my-auto font-black sizing-operation-amount text-center">
+                            <div className="sizing-amount my-auto">
+                                <p className="fw-bold my-auto py-2 font-poppins text-center my-auto">$5000</p>
+                            </div>
+                            <div className="d-flex">
+                                <div>
+                                    <p className="w-25 fs-4 my-auto font-gray pb-2 change"><FiEdit/></p>
+                                </div>
+                                <div>
+                                    <p className="w-25 fs-4 px-1 my-auto font-gray pb-2 delete"><IoCloseSharp/></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <hr className="w-100 font-black my-0"/>
-                    <div className="d-flex justify-content-between py-2">
-                        <div className="w-16 font-black py-2 my-auto">
-                            <p className="fw-bold ps-4 ps-md-5 my-auto font-green font-poppins">Income</p>
+                    <div className="d-flex py-2">
+                        <div className="sizing-operation-amount my-auto text-center">
+                            <p className="fw-bold my-auto font-red font-poppins">Expense</p>
                         </div>
-                        <div className="w-45 font-black text-center font-poppins font-gray-dark d-md-flex justify-content-between">
-                            <p className="m-0 fw-bold my-auto">12-12-2020</p>
-                            <p className="m-0 fw-bold my-auto">Cumpleaños</p>
+                        <div className="d-md-flex sizing-date-concept text-center font-poppins text-center font-gray-dark">
+                            <div className="w-100 my-auto text-center">
+                                <p className="fw-bold my-auto">12-12-2020</p>
+                            </div>
+                            <div className="w-100 my-auto text-center">
+                                <p className="fw-bold my-auto">Cumpleaños</p>
+                            </div>
                         </div>
-                        <div className="d-flex my-auto font-black">
-                            <p className="fw-bold my-auto py-2 font-poppins font-poppins">$3000</p>
-                            <p className="fs-4 my-auto font-gray pb-2 mx-3 delete"><IoCloseSharp/></p>
+                        <div className="d-flex my-auto font-black sizing-operation-amount text-center">
+                            <div className="sizing-amount my-auto">
+                                <p className="fw-bold my-auto py-2 font-poppins text-center my-auto">$5000</p>
+                            </div>
+                            <div className="d-flex">
+                                <div>
+                                    <p className="w-25 fs-4 my-auto font-gray pb-2 change"><FiEdit/></p>
+                                </div>
+                                <div>
+                                    <p className="w-25 fs-4 px-1 my-auto font-gray pb-2 delete"><IoCloseSharp/></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <hr className="w-100 font-black my-0"/>
-                    <div className="d-flex justify-content-between py-2">
-                        <div className="w-16 font-black py-2 my-auto">
-                            <p className="fw-bold ps-4 ps-md-5 my-auto font-red font-poppins">Expense</p>
+                    <div className="d-flex py-2">
+                        <div className="sizing-operation-amount my-auto text-center">
+                            <p className="fw-bold my-auto font-green font-poppins">Income</p>
                         </div>
-                        <div className="w-45 font-black text-center font-poppins font-gray-dark d-md-flex justify-content-between">
-                            <p className="m-0 fw-bold my-auto">12-12-2020</p>
-                            <p className="m-0 fw-bold my-auto">Cumpleaños</p>
+                        <div className="d-md-flex sizing-date-concept text-center font-poppins text-center font-gray-dark">
+                            <div className="w-100 my-auto text-center">
+                                <p className="fw-bold my-auto">12-12-2020</p>
+                            </div>
+                            <div className="w-100 my-auto text-center">
+                                <p className="fw-bold my-auto">Cumpleaños</p>
+                            </div>
                         </div>
-                        <div className="d-flex my-auto font-black">
-                            <p className="fw-bold my-auto py-2 font-poppins font-poppins">$3000</p>
-                            <p className="fs-4 my-auto font-gray pb-2 mx-3 delete"><IoCloseSharp/></p>
+                        <div className="d-flex my-auto font-black sizing-operation-amount text-center">
+                            <div className="sizing-amount my-auto">
+                                <p className="fw-bold my-auto py-2 font-poppins text-center my-auto">$3000</p>
+                            </div>
+                            <div className="d-flex">
+                                <div>
+                                    <p className="w-25 fs-4 my-auto font-gray pb-2 change"><FiEdit/></p>
+                                </div>
+                                <div>
+                                    <p className="w-25 fs-4 px-1 my-auto font-gray pb-2 delete"><IoCloseSharp/></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <hr className="w-100 font-black my-0"/>
-                    <div className="d-flex justify-content-between py-2">
-                        <div className="w-16 font-black py-2 my-auto">
-                            <p className="fw-bold ps-4 ps-md-5 my-auto font-green font-poppins">Income</p>
+                    <div className="d-flex py-2">
+                        <div className="sizing-operation-amount my-auto text-center">
+                            <p className="fw-bold my-auto font-red font-poppins">Expense</p>
                         </div>
-                        <div className="w-45 font-black text-center font-poppins font-gray-dark d-md-flex justify-content-between">
-                            <p className="m-0 fw-bold my-auto">12-12-2020</p>
-                            <p className="m-0 fw-bold my-auto">Cumpleaños</p>
+                        <div className="d-md-flex sizing-date-concept text-center font-poppins text-center font-gray-dark">
+                            <div className="w-100 my-auto text-center">
+                                <p className="fw-bold my-auto">12-12-2020</p>
+                            </div>
+                            <div className="w-100 my-auto text-center">
+                                <p className="fw-bold my-auto">Cumpleaños</p>
+                            </div>
                         </div>
-                        <div className="d-flex my-auto font-black">
-                            <p className="fw-bold my-auto py-2 font-poppins font-poppins">$3000</p>
-                            <p className="fs-4 my-auto font-gray pb-2 mx-3 delete"><IoCloseSharp/></p>
+                        <div className="d-flex my-auto font-black sizing-operation-amount text-center">
+                            <div className="sizing-amount my-auto">
+                                <p className="fw-bold my-auto py-2 font-poppins text-center my-auto">$5000</p>
+                            </div>
+                            <div className="d-flex">
+                                <div>
+                                    <p className="w-25 fs-4 my-auto font-gray pb-2 change"><FiEdit/></p>
+                                </div>
+                                <div>
+                                    <p className="w-25 fs-4 px-1 my-auto font-gray pb-2 delete"><IoCloseSharp/></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr className="w-100 font-black my-0"/>
+                    <div className="d-flex py-2">
+                        <div className="sizing-operation-amount my-auto text-center">
+                            <p className="fw-bold my-auto font-green font-poppins">Income</p>
+                        </div>
+                        <div className="d-md-flex sizing-date-concept text-center font-poppins text-center font-gray-dark">
+                            <div className="w-100 my-auto text-center">
+                                <p className="fw-bold my-auto">12-12-2020</p>
+                            </div>
+                            <div className="w-100 my-auto text-center">
+                                <p className="fw-bold my-auto">Cumpleaños</p>
+                            </div>
+                        </div>
+                        <div className="d-flex my-auto font-black sizing-operation-amount text-center">
+                            <div className="sizing-amount my-auto">
+                                <p className="fw-bold my-auto py-2 font-poppins text-center my-auto">$3000</p>
+                            </div>
+                            <div className="d-flex">
+                                <div>
+                                    <p className="w-25 fs-4 my-auto font-gray pb-2 change"><FiEdit/></p>
+                                </div>
+                                <div>
+                                    <p className="w-25 fs-4 px-1 my-auto font-gray pb-2 delete"><IoCloseSharp/></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr className="w-100 font-black my-0"/>
+                    <div className="d-flex py-2">
+                        <div className="sizing-operation-amount my-auto text-center">
+                            <p className="fw-bold my-auto font-red font-poppins">Expense</p>
+                        </div>
+                        <div className="d-md-flex sizing-date-concept text-center font-poppins text-center font-gray-dark">
+                            <div className="w-100 my-auto text-center">
+                                <p className="fw-bold my-auto">12-12-2020</p>
+                            </div>
+                            <div className="w-100 my-auto text-center">
+                                <p className="fw-bold my-auto">Cumpleaños</p>
+                            </div>
+                        </div>
+                        <div className="d-flex my-auto font-black sizing-operation-amount text-center">
+                            <div className="sizing-amount my-auto">
+                                <p className="fw-bold my-auto py-2 font-poppins text-center my-auto">$5000</p>
+                            </div>
+                            <div className="d-flex">
+                                <div>
+                                    <p className="w-25 fs-4 my-auto font-gray pb-2 change"><FiEdit/></p>
+                                </div>
+                                <div>
+                                    <p className="w-25 fs-4 px-1 my-auto font-gray pb-2 delete"><IoCloseSharp/></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr className="w-100 font-black my-0"/>
+                    <div className="d-flex py-2">
+                        <div className="sizing-operation-amount my-auto text-center">
+                            <p className="fw-bold my-auto font-green font-poppins">Income</p>
+                        </div>
+                        <div className="d-md-flex sizing-date-concept text-center font-poppins text-center font-gray-dark">
+                            <div className="w-100 my-auto text-center">
+                                <p className="fw-bold my-auto">12-12-2020</p>
+                            </div>
+                            <div className="w-100 my-auto text-center">
+                                <p className="fw-bold my-auto">Cumpleaños</p>
+                            </div>
+                        </div>
+                        <div className="d-flex my-auto font-black sizing-operation-amount text-center">
+                            <div className="sizing-amount my-auto">
+                                <p className="fw-bold my-auto py-2 font-poppins text-center my-auto">$3000</p>
+                            </div>
+                            <div className="d-flex">
+                                <div>
+                                    <p className="w-25 fs-4 my-auto font-gray pb-2 change"><FiEdit/></p>
+                                </div>
+                                <div>
+                                    <p className="w-25 fs-4 px-1 my-auto font-gray pb-2 delete"><IoCloseSharp/></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr className="w-100 font-black my-0"/>
+                    <div className="d-flex py-2">
+                        <div className="sizing-operation-amount my-auto text-center">
+                            <p className="fw-bold my-auto font-red font-poppins">Expense</p>
+                        </div>
+                        <div className="d-md-flex sizing-date-concept text-center font-poppins text-center font-gray-dark">
+                            <div className="w-100 my-auto text-center">
+                                <p className="fw-bold my-auto">12-12-2020</p>
+                            </div>
+                            <div className="w-100 my-auto text-center">
+                                <p className="fw-bold my-auto">Cumpleaños</p>
+                            </div>
+                        </div>
+                        <div className="d-flex my-auto font-black sizing-operation-amount text-center">
+                            <div className="sizing-amount my-auto">
+                                <p className="fw-bold my-auto py-2 font-poppins text-center my-auto">$5000</p>
+                            </div>
+                            <div className="d-flex">
+                                <div>
+                                    <p className="w-25 fs-4 my-auto font-gray pb-2 change"><FiEdit/></p>
+                                </div>
+                                <div>
+                                    <p className="w-25 fs-4 px-1 my-auto font-gray pb-2 delete"><IoCloseSharp/></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr className="w-100 font-black my-0"/>
+                    <div className="d-flex py-2">
+                        <div className="sizing-operation-amount my-auto text-center">
+                            <p className="fw-bold my-auto font-green font-poppins">Income</p>
+                        </div>
+                        <div className="d-md-flex sizing-date-concept text-center font-poppins text-center font-gray-dark">
+                            <div className="w-100 my-auto text-center">
+                                <p className="fw-bold my-auto">12-12-2020</p>
+                            </div>
+                            <div className="w-100 my-auto text-center">
+                                <p className="fw-bold my-auto">Cumpleaños</p>
+                            </div>
+                        </div>
+                        <div className="d-flex my-auto font-black sizing-operation-amount text-center">
+                            <div className="sizing-amount my-auto">
+                                <p className="fw-bold my-auto py-2 font-poppins text-center my-auto">$3000</p>
+                            </div>
+                            <div className="d-flex">
+                                <div>
+                                    <p className="w-25 fs-4 my-auto font-gray pb-2 change"><FiEdit/></p>
+                                </div>
+                                <div>
+                                    <p className="w-25 fs-4 px-1 my-auto font-gray pb-2 delete"><IoCloseSharp/></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

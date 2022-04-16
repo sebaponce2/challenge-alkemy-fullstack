@@ -55,6 +55,28 @@ input {
     }
 }
 
+.sizing-date-concept {
+    width: 33% !important;
+}
+
+.sizing-operation-amount {
+    width: 33% !important;
+}
+
+.sizing-amount {
+    width: 70% !important;
+}
+
+@media screen and (min-width: 762px) {
+    .sizing-date-concept {
+        width: 50% !important;
+    }
+    
+    .sizing-operation-amount {
+        width: 25% !important;
+    }
+}
+
 .button-send:hover {
     background-color: rgb(53, 4, 99);
 }

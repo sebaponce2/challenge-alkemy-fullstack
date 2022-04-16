@@ -1,0 +1,60 @@
+.back-home{
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.form-style{
+    margin: auto;
+    width: 100 !important;
+    max-width: 50rem !important;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+@media screen and (min-width: 768px) {
+    .form-style {
+        width: 80% !important;
+    }
+}
+
+input {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-color: blueviolet;
+}
+
+.mx-sm-3a {
+    margin-right: 1rem !important;
+    margin-left: 1rem !important;
+}
+
+@media screen and (min-width: 768px){
+    .mx-sm-3a {
+        margin: auto !important;
+    }
+
+}
+
+.button-send {
+    color:white !important;
+    background-color: rgb(105, 19, 185);
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+@media screen and (min-width: 992px) {
+    .button-send {
+        width: 100% !important;
+    }
+}
+
+.button-send:hover {
+    background-color: rgb(53, 4, 99);
+}

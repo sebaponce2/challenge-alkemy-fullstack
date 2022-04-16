@@ -1,5 +1,6 @@
 // component imports
 import { IoCloseSharp } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 
 
@@ -13,7 +14,7 @@ const Home = () => {
 
             <div className="text-center m-auto">
                 <p className="font-poppins mb-2">Add new income or expense</p>
-                <button className="button-incomes font-poppins border-0 mb-4 p-2">+Add operation</button>
+                <Link to="/newOperation"><button className="button-incomes font-poppins border-0 mb-4 p-2">+Add operation</button></Link>
             </div>
             <div className="bg-white table-p">
                 <div className="text-center py-4">

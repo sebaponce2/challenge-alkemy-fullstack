@@ -1,11 +1,5 @@
-// Component imports 
 import { Link } from "react-router-dom";
-
-// Css imports
-import "../css/Login.css";
-
-
-const Login = () => {
+const Register = () => {
     return ( 
         <>
             <section style={{height: '100vh'}}>
@@ -16,18 +10,17 @@ const Login = () => {
                         <input className="d-block w-100 p-2 px-4 font-poppins my-auto text-center" type="email" name="mail" placeholder="Email"/>
                         <label className="d-block fw-bold text-center font-poppins font-black mt-4 mb-2" htmlFor="password">Password</label>
                         <input className="d-block w-100 p-2 px-4 font-poppins my-auto text-center" type="password" name="password" id="password" placeholder="Password"/>
+                        <label className="d-block fw-bold text-center font-poppins font-black mt-4 mb-2" htmlFor="password">Repeat your password</label>
+                        <input className="d-block w-100 p-2 px-4 font-poppins my-auto text-center" type="password" name="password" id="password" placeholder="Repeat your password"/>
                         <div className="text-center">
-                            <button className="border-0 login-button fw-bold font-poppins" type="submit">Login</button>
-                        </div>
-                        <p className="font-black text-center font-poppins pt-3 pb-2 m-0 ">or</p>
-                        <div className="w-100 text-center">
-                            <Link to="/register"><button className="border-0 fw-bold font-poppins bg-white">Register</button></Link>
+                            <Link to="/login"><button className="border-0 login-button fw-bold font-poppins">Register</button></Link>
+                           
                         </div>
                     </form>
                 </div>
             </section>
-        </>
-     );
+        </> 
+    );
 }
  
-export default Login;
+export default Register;

@@ -5,6 +5,7 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import Operations from "./Operations";
 import Login from "./Login";
+import Register from "./Register";
 
 // Css imports
 import "../css/Home.css";
@@ -33,6 +34,11 @@ const Container = () => {
                         <Login />
                     </section>
                 }/>
+                <Route path="/register" element={
+                    <section className="container-page font-white pt-5">
+                        <Register/>  
+                    </section>
+                } />
             </Routes>
             <footer style={{bottom: '0'}}>
                 <Footer/>

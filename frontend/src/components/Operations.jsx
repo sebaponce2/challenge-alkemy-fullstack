@@ -19,7 +19,7 @@ const Operations = () => {
                     <input className="d-block border-2 w-100 p-2" type="text" placeholder="Salary"/>
                     <label className="d-block font-black font-poppins fw-bold pb-1 pt-4">Amount</label>
                     <input className="d-block border-2 w-100 p-2" type="number" placeholder="10000"/>
-                    <label className="d-block font-black font-poppins fw-bold pb-1 pt-4">Date time</label>
+                    <label className="d-block font-black font-poppins fw-bold pb-1 pt-4">Date</label>
                     <input className="d-block border-2 p-1" type="date" name="" id="" />
                     <label className="d-block font-black font-poppins fw-bold pb-1 pt-4">Operation</label>
                     <div className="d-flex w-100">
@@ -39,7 +39,7 @@ const Operations = () => {
             </section>
             
             <section>
-                <h2 className="text-center mt-5 mb-4">Historial</h2>
+                <h2 className="text-center mt-5 mb-4">History</h2>
                 <div className="bg-white table-p">
                     <div className="d-flex py-2 bg-purple-dark">
                         <div className="sizing-operation-amount my-auto text-center">

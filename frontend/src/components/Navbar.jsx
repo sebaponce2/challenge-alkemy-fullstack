@@ -13,9 +13,10 @@ const Navbar = () =>{
                     <Link to="/" className="text-decoration-none"><p className="navbar-brand mb-0 h1 font-poppins font-white fw-bold">Sebastián Ponce</p></Link>
                     <div>
                         <ul className="navbar-nav">
-                            <li className="nav-item font-poppins fw-bold">
-                                <Link className="nav-link active font-white" aria-current="page" to="/login">Login</Link>
-                            </li>
+                            <Link className="nav-link active font-white" aria-current="page" to="/login">
+                                <li className="nav-item font-poppins fw-bold">Login</li>
+                            </Link>
+                            <li className="nav-item font-poppins fw-bold d-none">Log out</li>
                         </ul>
                     </div>
                 </div>

@@ -10,7 +10,7 @@ const Operations = () => {
     return ( 
         <>
             <div className="text-center">
-                <Link to="/"><button className="border-0 back-home mt-5 p-2 font-poppins fw-bold">Back home</button></Link>
+                <Link to="/"><button className="border-0 button-incomes mt-5 p-2 font-poppins fw-bold">Back home</button></Link>
             </div>
             <h1 className="py-5 text-center font-poppins">Create a new operation</h1>
             <section className="bg-white form-style mb-5 p-3 mx-sm-3a">

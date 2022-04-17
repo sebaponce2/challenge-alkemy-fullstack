@@ -4,6 +4,7 @@ import Home from "./Home";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import Operations from "./Operations";
+import Login from "./Login";
 
 // Css imports
 import "../css/Home.css";
@@ -25,6 +26,11 @@ const Container = () => {
                 <Route path="/newOperation" element={
                     <section className="container-page font-white pt-5">
                         <Operations/>
+                    </section>
+                }/>
+                <Route path="/login" element= {
+                    <section className="container-page font-white pt-5">
+                        <Login />
                     </section>
                 }/>
             </Routes>

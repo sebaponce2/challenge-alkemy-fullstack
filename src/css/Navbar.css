@@ -6,3 +6,8 @@
 .container-navbar {
     max-width: 80rem !important;
 }
+
+.text-decoration-none {
+    text-decoration: none !important;
+    list-style: none !important;
+}

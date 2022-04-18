@@ -6,14 +6,14 @@ const config = require('../backend/config/config');
 
 // Route imports
 const registerRoute = require('./routes/registerRoute');
-
+const loginRoute = require('./routes/loginRoute');
 
 
 app.use(express.json());
 
 
 app.use('/register', registerRoute);
-
+app.use('/login', loginRoute);
 
 
 app.listen(config.port, () => console.log(`Server started ${config.port}`));

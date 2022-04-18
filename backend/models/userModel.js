@@ -27,8 +27,19 @@ module.exports.register = async (name, lastName, email, password) => {
 }
 
 module.exports.login = async (email, password) => {
-    
-    const user = request(`
-        
+    const user = await request(`
+        SELECT * FROM users WHERE email = '${email}'
     `);
+
+    if (user && comparePassword(password, user.password)) {
+        delete user.password
+        return {
+            isUser: true,
+            ...user
+        }
+    }
+
+    return {
+        isUser: false
+    }
 }

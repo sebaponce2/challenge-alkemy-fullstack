@@ -1,4 +1,4 @@
-const { register } = require('../models/userModel');
+const { register, login } = require('../models/userModel');
 
 
 module.exports.registerController = async (req, res) => {
@@ -13,6 +13,13 @@ module.exports.registerController = async (req, res) => {
     }
 }
 
-// module.exports.loginController = async () => {
-    
-// }
+module.exports.loginController = async (req, res) => {
+    const {email, password} = req.body;
+
+    try {
+        const user = await login(email, password);
+        res.status(200).send(user);
+    } catch (error) {
+        console.log(error);
+    }
+}

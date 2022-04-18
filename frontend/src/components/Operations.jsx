@@ -18,7 +18,7 @@ const Operations = () => {
                     <label className="d-block font-black font-poppins fw-bold pb-1 pt-4">Concept</label>
                     <input className="d-block border-2 w-100 p-2" type="text" placeholder="Salary"/>
                     <label className="d-block font-black font-poppins fw-bold pb-1 pt-4">Amount</label>
-                    <input className="d-block border-2 w-100 p-2" type="number" placeholder="10000"/>
+                    <input className="d-block border-2 w-100 p-2" type="number" min={1} placeholder="10000"/>
                     <label className="d-block font-black font-poppins fw-bold pb-1 pt-4">Date</label>
                     <input className="d-block border-2 p-1" type="date" name="" id="" />
                     <label className="d-block font-black font-poppins fw-bold pb-1 pt-4">Operation</label>
@@ -37,31 +37,30 @@ const Operations = () => {
                     </div>
                 </form>
             </section>
-            
             <section>
                 <h2 className="text-center mt-5 mb-4">History</h2>
-                <div className="bg-white table-p">
-                    <div className="d-flex py-2 bg-purple-dark">
-                        <div className="sizing-operation-amount my-auto text-center">
-                            <p className="fw-bold font-white my-auto font-poppins">Operation</p>
+                <div className="d-flex py-2 bg-purple-dark menu-size">
+                    <div className="sizing-operation-amount my-auto text-center">
+                        <p className="fw-bold font-white my-auto font-poppins">Operation</p>
+                    </div>
+                    <div className="d-md-flex sizing-date-concept text-center font-poppins">
+                        <div className="w-100 my-auto text-center">
+                            <p className="fw-bold font-white my-auto">Date</p>
                         </div>
-                        <div className="d-md-flex sizing-date-concept text-center font-poppins">
-                            <div className="w-100 my-auto text-center">
-                                <p className="fw-bold font-white my-auto">Date</p>
-                            </div>
-                            <div className="w-100 my-auto text-center">
-                                <p className="fw-bold font-white my-auto">Concept</p>
-                            </div>
-                        </div>
-                        <div className="sizing-operation-amount my-auto text-center d-flex">
-                            <div className="sizing-amount">
-                                <p className="fw-bold font-white my-auto py-2 font-poppins">Amount</p>
-                            </div>
-                            <div className="font-purple-black my-auto">
-                                <p>a</p>
-                            </div>
+                        <div className="w-100 my-auto text-center">
+                            <p className="fw-bold font-white my-auto">Concept</p>
                         </div>
                     </div>
+                    <div className="sizing-operation-amount my-auto text-center d-flex">
+                        <div className="sizing-amount">
+                            <p className="fw-bold font-white my-auto py-2 font-poppins">Amount</p>
+                        </div>
+                        <div className="font-purple-black my-auto">
+                            <p>a</p>
+                        </div>
+                    </div>
+                </div>
+                <div className="bg-white table-p">
                     <hr className="w-100 font-black my-0"/>
                     <div className="d-flex py-2">
                         <div className="sizing-operation-amount my-auto text-center">

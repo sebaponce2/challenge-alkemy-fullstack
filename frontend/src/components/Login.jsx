@@ -27,13 +27,13 @@ const Login = () => {
                 mode:"cors"
             });
             const data = await res.json();
-            console.log(data);
 
             if (data.isUser) {
                 cookies.set(
                     "username",
                     {key: data.id},
-                    {maxAge: msToDaysParser(3)}
+                    {maxAge: msToDaysParser(3)},
+                    {path: "/"}
                 );
                 cookies.set("name", data.name, {path: "/"});
                 cookies.set("lastName", data.last_name, {path: "/"});

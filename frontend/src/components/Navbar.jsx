@@ -8,7 +8,6 @@ import "../css/Navbar.css";
 
 const Navbar = () =>{
     const cookies = new Cookies();
-    console.log(cookies);
 
     
     const logout = () => {
@@ -36,7 +35,7 @@ const Navbar = () =>{
             ) : (
                 <div className="navbar navbar-light bg-purple-dark px-3 fixed-navbar">
                     <div className="container-fluid d-flex justify-content-between container-navbar">
-                        <Link to="/" className="text-decoration-none"><p className="navbar-brand mb-0 h1 font-poppins font-white fw-bold">Welcome user</p></Link>
+                        <p className="navbar-brand mb-0 h1 font-poppins font-white fw-bold" style={{cursor: 'pointer'}}>Welcome user</p>
                         <div>
                             <ul className="navbar-nav">
                                 <Link className="nav-link active font-white" aria-current="page" to="/login">

@@ -1,26 +1,25 @@
-// component imports
+// Component imports
 import { Link } from "react-router-dom";
 import Cookies from "universal-cookie";
 
 
 
 const Home = () => {
-
     const cookies = new Cookies();
 
     return (
         <>
             <h1 className="text-center py-5">{`Welcome, ${cookies.get("name")}`}</h1>
-
             <div className="text-center m-auto">
                 <p className="font-poppins mb-2">Add new income or expense</p>
                 <Link to="/newOperation"><button className="button-incomes font-poppins border-0 mb-4 p-2">+Add operation</button></Link>
             </div>
+            <div className="text-center py-4 menu-size">
+                <h2 className="text-center my-auto nter font-black py-2 m-auto font-poppins">Current balance</h2>
+                <h2 className="font-green font-poppins" style={{display: 'inline'}}>$140000</h2>
+            </div>
+            <hr className="menu-size font-black my-0"/>
             <div className="bg-white table-p">
-                <div className="text-center py-4">
-                    <h2 className="text-cemy-auto nter font-black py-2 m-auto font-poppins">Current balance</h2>
-                    <h2 className="font-green font-poppins" style={{display: 'inline'}}>$140000</h2>
-                </div>
                 <hr className="w-100 font-black my-0"/>
                 <div className="d-flex py-2">
                     <div className="sizing-operation-amount my-auto text-center">

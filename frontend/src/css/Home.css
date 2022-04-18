@@ -2,56 +2,57 @@
     width: 100% !important;
 }
 
+/* Table styles */
+
+.menu-size {
+    width: 100% !important;
+    margin: auto !important;
+    max-width: 50rem !important;
+    border-top-right-radius: 1rem !important;
+    border-top-left-radius: 1rem !important;
+    background-color: white !important;
+}
+@media screen and (min-width: 762px) {
+    .menu-size {
+        width:90% !important;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .menu-size {
+        width: 80% !important;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .menu-size {
+        width: 60% !important; 
+    }    
+}
+
 .table-p{
     margin: auto;
     width: 100% !important;
     height: 70vh !important;
     max-width: 50rem !important;
     margin-bottom: 5rem !important;
-    border-top-left-radius: 1rem !important;
     border-bottom-left-radius: 1rem !important;
-    border-top-right-radius: 1rem !important;
     border-bottom-right-radius: 1rem !important;
     overflow: scroll !important;
     overflow-x: hidden !important;
     overflow-y: visible;
 }
+
 @media screen and (min-width: 762px) {
     .table-p {
         width:90% !important;
     }
 }
-.w-45 {
-    width: 45% !important;
-}
 
-@media screen and (min-width: 768px) {
-    .w-16 {
-        width: 16% !important;
-    }
-}
-::-webkit-scrollbar {
-    width: 7px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgb(53, 2, 119);
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
-}
-
-
-.delete:hover{
-    color: red !important;
-    cursor: pointer !important;
-}
-
-.change:hover {
-    color: blueviolet !important;
-    cursor: pointer !important;
+@media screen and (min-width: 992px) {
+    .table-p {
+        width: 60% !important; 
+    }    
 }
 
 @media screen and (min-width: 768px) {
@@ -66,6 +67,36 @@
     }    
 }
 
+
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(53, 2, 119);
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+
+/* Icons styles */
+.delete:hover{
+    color: red !important;
+    cursor: pointer !important;
+}
+
+.change:hover {
+    color: blueviolet !important;
+    cursor: pointer !important;
+}
+
+
+/* button table styles */
 .button-incomes{ 
     background-color: white !important;
     font-weight: 600;

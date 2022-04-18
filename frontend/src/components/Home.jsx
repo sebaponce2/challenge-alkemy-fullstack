@@ -1,15 +1,16 @@
 // component imports
 import { Link } from "react-router-dom";
+import Cookies from "universal-cookie";
 
 
 
 const Home = () => {
 
-    // const [historial, setHistorial] = useState();
-    
+    const cookies = new Cookies();
+
     return (
         <>
-            <h1 className="text-center py-5">Welcome, Sebastián!</h1>
+            <h1 className="text-center py-5">{`Welcome, ${cookies.get("name")}`}</h1>
 
             <div className="text-center m-auto">
                 <p className="font-poppins mb-2">Add new income or expense</p>

@@ -2,6 +2,7 @@
 const express = require('express');
 const app = express();
 const config = require('../backend/config/config');
+const cors = require('cors');
 
 
 // Route imports
@@ -10,7 +11,7 @@ const loginRoute = require('./routes/loginRoute');
 
 
 app.use(express.json());
-
+app.use(cors());
 
 app.use('/register', registerRoute);
 app.use('/login', loginRoute);

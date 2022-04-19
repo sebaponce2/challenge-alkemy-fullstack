@@ -12,7 +12,7 @@ const Operations = () => {
             <div className="text-center">
                 <Link to="/"><button className="border-0 button-incomes mt-5 p-2 font-poppins fw-bold">Back home</button></Link>
             </div>
-            <h1 className="py-5 text-center font-poppins">Create a new operation</h1>
+            <h1 className="py-5 text-center font-poppins" id="title">Create a new operation</h1>
             <section className="bg-white form-style mb-5 p-3 mx-sm-3a">
                 <form action="/" className="m-auto">
                     <label className="d-block font-black font-poppins fw-bold pb-1 pt-4">Concept</label>
@@ -58,6 +58,7 @@ const Operations = () => {
                         <div className="font-purple-black my-auto">
                             <p>a</p>
                         </div>
+
                     </div>
                 </div>
                 <div className="bg-white table-p">
@@ -79,9 +80,9 @@ const Operations = () => {
                                 <p className="fw-bold my-auto py-2 font-poppins text-center my-auto">$3000</p>
                             </div>
                             <div className="d-flex">
-                                <div>
-                                    <p className="w-25 fs-4 my-auto font-gray pb-2 change"><FiEdit/></p>
-                                </div>
+                                <a href="#title">
+                                    <p className="w-25 fs-4 my-auto font-gray pb-2 change"><FiEdit /></p>
+                                </a>
                                 <div>
                                     <p className="w-25 fs-4 px-1 my-auto font-gray pb-2 delete"><IoCloseSharp/></p>
                                 </div>
@@ -242,7 +243,7 @@ const Operations = () => {
                             </div>
                             <div className="d-flex">
                                 <div>
-                                    <p className="w-25 fs-4 my-auto font-gray pb-2 change"><FiEdit/></p>
+                                    <p className="w-25 fs-4 my-auto font-gray pb-2 change"><FiEdit href="#title"/></p>
                                 </div>
                                 <div>
                                     <p className="w-25 fs-4 px-1 my-auto font-gray pb-2 delete"><IoCloseSharp/></p>

@@ -8,6 +8,7 @@ const cors = require('cors');
 // Route imports
 const registerRoute = require('./routes/registerRoute');
 const loginRoute = require('./routes/loginRoute');
+const historyRoute = require('./routes/historyRoutes');
 
 
 app.use(express.json());
@@ -15,6 +16,7 @@ app.use(cors());
 
 app.use('/register', registerRoute);
 app.use('/login', loginRoute);
+app.use('/newOperation', historyRoute);
 
 
 app.listen(config.port, () => console.log(`Server started ${config.port}`));

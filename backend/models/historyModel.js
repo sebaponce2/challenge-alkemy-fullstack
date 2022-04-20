@@ -2,12 +2,20 @@
 const { request } = require('../db/mysql');
 
 module.exports.getHistory = async (idUser) => {
-    const history = request(`
+    const history = await request(`
         SELECT * FROM history WHERE id_user = ${idUser} 
     `);
+    
+    if (history.length >= 1) {
+        return {
+            rendered: history ? true : false,
+            history: [...history]
+        }
+    }
 
     return {
-        rendered: history ? true : false
+        rendered: history ? true : false,
+        history: [history]
     }
 }
 
@@ -20,7 +28,7 @@ module.exports.setHistory = async (idUser, operation, date, concept, amount) => 
     if (history) {
         return {
             newRecord: true,
-            ...history
+            history
         }
     }
 
@@ -29,16 +37,15 @@ module.exports.setHistory = async (idUser, operation, date, concept, amount) => 
     }
 
 }
-module.exports.updateHistory = async (id, idUser, date, concept, amount) => {
+module.exports.updateHistory = async (idOperation, date, concept, amount) => {
 
     const history = await request(`
-        UPDATE history SET date = '${date}', concept = '${concept}', amount = ${amount} WHERE id = ${id} AND id_user = ${idUser}
+        UPDATE history SET date = '${date}', concept = '${concept}', amount = ${amount} WHERE id = ${idOperation}
     `);
-    
-    if (history) {
+
+    if (history.affectedRows == 1) {
         return {
-            updated: true,
-            ...history
+            updated: true
         }    
     }
 
@@ -47,10 +54,10 @@ module.exports.updateHistory = async (id, idUser, date, concept, amount) => {
     }
 }
 
-module.exports.deleteHistory = async (id, idUser) => {
+module.exports.deleteHistory = async (idOperation) => {
     
     const history = await request(`
-        DELETE FROM history WHERE id = ${id} AND id_user = ${idUser}
+        DELETE FROM history WHERE id = ${idOperation}
     `);
     
     return {

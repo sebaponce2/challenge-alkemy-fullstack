@@ -13,10 +13,12 @@ const Login = () => {
     const [password, setPassword] = useState(""); 
     
     const cookies = new Cookies();
+    
     const submitHandler = async (e) => {
         e.preventDefault();
 
         try {
+
             const res = await fetch("http://localhost:8080/login",{
                 method: "POST",
                 body: JSON.stringify({email, password}),
@@ -37,6 +39,8 @@ const Login = () => {
                 );
                 cookies.set("name", data.name, {path: "/"});
                 cookies.set("lastName", data.last_name, {path: "/"});
+                cookies.set("idUser", data.id, {path: "/"});
+                console.log(`idUser: ${cookies.get("idUser")}`);
 
                 window.location.assign("/");
             }else alert("Email or password incorrect.");

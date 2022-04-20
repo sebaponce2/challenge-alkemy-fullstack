@@ -1,10 +1,10 @@
 const { setHistory ,getHistory ,updateHistory, deleteHistory } = require('../models/historyModel');
 
 module.exports.getHistoryController = async (req, res) => {
-    const { idUser } = req.body; 
-    
+    const idUser  = req.params.id; 
+
     try {
-        const data = await getHistory( idUser );
+        const data = await getHistory(idUser);
         res.status(200).send(data);
 
     } catch (error) {
@@ -25,10 +25,10 @@ module.exports.setHistoryController = async (req, res) => {
 }
 
 module.exports.updateHistoryController = async (req, res) => {
-    const {id, idUser, date, concept, amount} = req.body;
+    const {idOperation, date, concept, amount} = req.body;
 
     try {
-        const data = await updateHistory(id, idUser, date, concept, amount);
+        const data = await updateHistory(idOperation, date, concept, amount);
         res.status(200).send(data);
         
     } catch (error) {
@@ -37,10 +37,10 @@ module.exports.updateHistoryController = async (req, res) => {
 }
 
 module.exports.deleteHistoryController = async (req, res) => {
-    const { id, idUser } = req.body;
+    const {idOperation}  = req.body;
 
     try {
-        const data = await deleteHistory(id, idUser);
+        const data = await deleteHistory(idOperation);
         res.status(200).send(data);
 
     } catch (error) {

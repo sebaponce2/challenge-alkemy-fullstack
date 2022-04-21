@@ -73,44 +73,49 @@ const Home = () => {
                 <Link to="/newOperation"><button className="button-incomes font-poppins border-0 mb-4 p-2">+Add operation</button></Link>
             </div>
             <div className="text-center py-4 menu-size">
+                <h4 className='text-center font-purple-black pb-3 font-poppins fw-bold'>Last operations</h4>
                 <h2 className="text-center my-auto nter font-black py-2 m-auto font-poppins">Current balance</h2>
-                <h2 className="font-green font-poppins" style={{display: 'inline'}}>${currentBalance}</h2>
+                <h2 className="font-green font-poppins" style={{display: 'inline'}}>${currentBalance ? currentBalance : "0"}</h2>
             </div>
             <hr className="menu-size font-black my-0"/>
             <div className="bg-white table-p font-black">
                 {
-                    history !== [] && history?.length !== undefined ? (
-                        history.map((item => {
-                            return(
-                                <div key={item.id}>
-                                <hr className="w-100 font-black my-0"/>
-                                <div className="d-flex py-2">
-                                    <div className="sizing-operation-amount my-auto text-center">
-                                        <p className={ (item.operation === 0) ? ("fw-bold my-auto font-green font-poppins") : ("fw-bold my-auto font-red font-poppins") }>{item.operation === 0 ? "Income" : "Expense"}</p>
-                                    </div>
-                                    <div className="d-md-flex sizing-date-concept text-center font-poppins text-center font-black">
-                                        <div className="w-100 my-auto text-center">
-                                            <p className="fw-bold my-auto">{item.date}</p>
+                    history == 0 ? (<div>
+                        <h1 className='text-center font-gray mt-5 pt-5'>There aren't operations.</h1>
+                    </div>) : (
+                        history && history.length !== undefined ? (
+                            history.map((item => {
+                                return(
+                                    <div key={item.id}>
+                                    <hr className="w-100 font-black my-0"/>
+                                    <div className="d-flex py-2">
+                                        <div className="sizing-operation-amount my-auto text-center">
+                                            <p className={ (item.operation === 0) ? ("fw-bold my-auto font-green font-poppins") : ("fw-bold my-auto font-red font-poppins") }>{item.operation === 0 ? "Income" : "Expense"}</p>
                                         </div>
-                                        <div className="w-100 my-auto text-center">
-                                            <p className="fw-bold my-auto">{item.concept}</p>
+                                        <div className="d-md-flex sizing-date-concept text-center font-poppins text-center font-black">
+                                            <div className="w-100 my-auto text-center">
+                                                <p className="fw-bold my-auto">{item.date}</p>
+                                            </div>
+                                            <div className="w-100 my-auto text-center">
+                                                <p className="fw-bold my-auto">{item.concept}</p>
+                                            </div>
+                                        </div>
+                                        <div className="d-flex my-auto font-black sizing-operation-amount text-center">
+                                            <div className="w-100 my-auto">
+                                                <p className="fw-bold my-auto py-2 font-poppins text-center my-auto">${item.amount}</p>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div className="d-flex my-auto font-black sizing-operation-amount text-center">
-                                        <div className="w-100 my-auto">
-                                            <p className="fw-bold my-auto py-2 font-poppins text-center my-auto">${item.amount}</p>
-                                        </div>
-                                    </div>
+                                    <hr className="w-100 font-black my-0"/>
                                 </div>
-                                <hr className="w-100 font-black my-0"/>
-                            </div>
-                            )
-                        }))
-                    ) : (
-                        <div>
-                            <h1 className='text-center font-gray mt-5 pt-5'>There aren't operations.</h1>
-                        </div> 
-                    )
+                                )
+                            }))
+                        ) : (
+                            <div>
+                                <h1 className='text-center font-gray mt-5 pt-5'>There aren't operations.</h1>
+                            </div> 
+                        )
+                    ) 
                 }
             </div>
         </>

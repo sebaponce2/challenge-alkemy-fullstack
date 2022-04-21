@@ -25,7 +25,6 @@ const Register = () => {
                 });
 
                 const data = await res.json();
-                console.log(data);
                 
                 if (data.isAlreadyUsed) {
                     alert("Email already used.");

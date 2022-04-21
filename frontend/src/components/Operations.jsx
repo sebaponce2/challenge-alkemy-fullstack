@@ -227,51 +227,56 @@ const Operations = () => {
                     </div>
                 </div>
                 <div className="bg-white table-p">
-                    {
-                        history?.history !== [] && history?.history?.length !== undefined ? (
-                        history?.history?.map((item => { 
-                            return (
-                                <div key={item.id}>
-                                    <hr className="w-100 font-black my-0"/>
-                                    <div className="d-flex py-2">
-
-                                        <div className="sizing-operation-amount my-auto text-center">
-                                            <p className={ (item.operation === 0) ? ("fw-bold my-auto font-green font-poppins") : ("fw-bold my-auto font-red font-poppins") }>{item.operation === 0 ? "Income" : "Expense"}</p>
+                    {   
+                        history.history == 0 ? ( <div>
+                            <h1 className='text-center font-gray mt-5 pt-5'>There aren't operations.</h1>
+                        </div>  ) : (
+                            history && history.history !== 0  ? (
+                                history?.history?.map((item => { 
+                                    return (
+                                        <div key={item.id}>
+                                            <hr className="w-100 font-black my-0"/>
+                                            <div className="d-flex py-2">
+        
+                                                <div className="sizing-operation-amount my-auto text-center">
+                                                    <p className={ (item.operation === 0) ? ("fw-bold my-auto font-green font-poppins") : ("fw-bold my-auto font-red font-poppins") }>{item.operation === 0 ? "Income" : "Expense"}</p>
+                                                </div>
+        
+                                                <div className="d-md-flex sizing-date-concept text-center font-poppins text-center font-gray-dark">
+                                                    <div className="w-100 my-auto text-center">
+                                                        <p className="fw-bold my-auto">{item.date}</p>
+                                                    </div>
+                                                    <div className="w-100 my-auto text-center">
+                                                        <p className="fw-bold my-auto">{item.concept}</p>
+                                                    </div>
+                                                </div>
+        
+                                                
+                                                <div className="d-flex my-auto font-gray-dark sizing-operation-amount text-center">
+                                                    <div className="sizing-amount my-auto">
+                                                        <p className="fw-bold my-auto py-2 font-poppins text-center my-auto">${item.amount}</p>
+                                                    </div>
+                                                    <div className="d-flex">
+                                                        <a href="#edit" onClick={()=> getSavedValues(true, item.id, item.operation, item.date, item.concept, item.amount)}>
+                                                            <p className="w-25 fs-4 my-auto font-gray pb-2 change"><FiEdit /></p>
+                                                        </a>
+                                                        <a onClick={() => handlerDelete(item.id)}>
+                                                            <p className="w-25 fs-4 px-1 my-auto font-gray pb-2 delete"><IoCloseSharp/></p>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr className="w-100 font-black my-0"/>
                                         </div>
-
-                                        <div className="d-md-flex sizing-date-concept text-center font-poppins text-center font-gray-dark">
-                                            <div className="w-100 my-auto text-center">
-                                                <p className="fw-bold my-auto">{item.date}</p>
-                                            </div>
-                                            <div className="w-100 my-auto text-center">
-                                                <p className="fw-bold my-auto">{item.concept}</p>
-                                            </div>
-                                        </div>
-
-                                        
-                                        <div className="d-flex my-auto font-gray-dark sizing-operation-amount text-center">
-                                            <div className="sizing-amount my-auto">
-                                                <p className="fw-bold my-auto py-2 font-poppins text-center my-auto">${item.amount}</p>
-                                            </div>
-                                            <div className="d-flex">
-                                                <a href="#edit" onClick={()=> getSavedValues(true, item.id, item.operation, item.date, item.concept, item.amount)}>
-                                                    <p className="w-25 fs-4 my-auto font-gray pb-2 change"><FiEdit /></p>
-                                                </a>
-                                                <a onClick={() => handlerDelete(item.id)}>
-                                                    <p className="w-25 fs-4 px-1 my-auto font-gray pb-2 delete"><IoCloseSharp/></p>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <hr className="w-100 font-black my-0"/>
-                                </div>
-                            )
-                        }
-                        ))) : ( 
-                            <div>
-                                <h1 className='text-center font-gray mt-5 pt-5'>There aren't operations.</h1>
-                            </div> 
+                                    )
+                                }
+                                ))) : ( 
+                                    <div>
+                                        <h1 className='text-center font-gray mt-5 pt-5'>There aren't operations.</h1>
+                                    </div> 
+                                )
                         )
+                        
                     }
                 </div>
             </section>

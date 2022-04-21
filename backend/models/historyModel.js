@@ -13,6 +13,12 @@ module.exports.getHistory = async (idUser) => {
         }
     }
 
+    if (!history) {
+        return {
+            history: []
+        }
+    }
+
     return {
         rendered: history ? true : false,
         history: [history]

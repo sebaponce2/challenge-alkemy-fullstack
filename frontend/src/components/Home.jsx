@@ -75,7 +75,7 @@ const Home = () => {
             <div className="text-center py-4 menu-size">
                 <h4 className='text-center font-purple-black pb-3 font-poppins fw-bold'>Last operations</h4>
                 <h2 className="text-center my-auto nter font-black py-2 m-auto font-poppins">Current balance</h2>
-                <h2 className="font-green font-poppins" style={{display: 'inline'}}>${currentBalance ? currentBalance : "0"}</h2>
+                <h2 className={currentBalance == 0 ? "font-black font-poppins" : (currentBalance > 0 ? "font-green font-poppins" : "font-red font-poppins")} style={{display: 'inline'}}>${currentBalance ? currentBalance : "0"}</h2>
             </div>
             <hr className="menu-size font-black my-0"/>
             <div className="bg-white table-p font-black">

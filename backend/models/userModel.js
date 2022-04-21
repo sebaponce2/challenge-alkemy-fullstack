@@ -9,7 +9,7 @@ module.exports.register = async (name, lastName, email, password) => {
         SELECT * FROM users WHERE email = "${email}"
     `);
 
-    if (verifyUser) {
+    if (verifyUser != 0) {
         return {
             isAlreadyUsed: true
         }
@@ -27,9 +27,11 @@ module.exports.register = async (name, lastName, email, password) => {
 }
 
 module.exports.login = async (email, password) => {
+
     const user = await request(`
         SELECT * FROM users WHERE email = '${email}'
     `);
+
 
     if (user && comparePassword(password, user.password)) {
         delete user.password

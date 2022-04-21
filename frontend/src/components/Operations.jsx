@@ -18,7 +18,7 @@ const Operations = () => {
     const [history, setHistory] = useState([]);
     const [editMode, setEditMode] = useState(false);
     const [idOperation, setIdOperation] = useState(0);
-    const [operation, setOperation] = useState(0);
+    const [operation, setOperation] = useState(-1);
     const [date, setDate] = useState("");
     const [concept, setConcept] = useState("");
     const [amount, setAmount] = useState(0);
@@ -163,6 +163,12 @@ const Operations = () => {
         });
     }
 
+    const checkCompletedInputs = () => {
+        if (concept && amount && date && operation >= 0) return true;
+        
+        return false;
+    }
+
     return ( 
         <>
             <div className="text-center">
@@ -172,11 +178,11 @@ const Operations = () => {
             <section className="bg-white form-style mb-5 p-3 mx-sm-3a">
                 <form className="m-auto" action='/newOperation'>
                     <label className="d-block font-black font-poppins fw-bold pb-1 pt-4">Concept</label>
-                    <input className="d-block border-2 w-100 p-2" type="text" value={ concept } onChange={(e) => setConcept(e.target.value)} placeholder="Salary"/>
+                    <input className="d-block border-2 w-100 p-2" type="text" value={ concept } onChange={(e) => setConcept(e.target.value)} placeholder="Salary" required/>
                     <label className="d-block font-black font-poppins fw-bold pb-1 pt-4">Amount</label>
-                    <input className="d-block border-2 w-100 p-2" type="number" min={1} value={ amount } onChange={(e) => setAmount(e.target.value)} placeholder="10000"/>
+                    <input className="d-block border-2 w-100 p-2" type="number" min={1} value={ amount } onChange={(e) => setAmount(e.target.value)} placeholder="10000" required/>
                     <label className="d-block font-black font-poppins fw-bold pb-1 pt-4">Date</label>
-                    <input className="d-block border-2 p-1" type="date" value={ date } onChange={(e) => setDate(e.target.value)}/>
+                    <input className="d-block border-2 p-1" type="date" value={ date } onChange={(e) => setDate(e.target.value)} required/>
                     <label className="d-block font-black font-poppins fw-bold pb-1 pt-4">Operation</label>
                     {editMode ? (
                         <p className={ editMode && operation === 0 ? "fw-bold my-auto font-green font-poppins" : "fw-bold my-auto font-red font-poppins"}>
@@ -186,17 +192,17 @@ const Operations = () => {
                         <div className="d-flex w-100" onChange={(e) => editMode ? operation : setOperation(e.target.value)}>
                             <div className="d-flex">
                                 <label className="font-black my-auto font-poppins" name="income" htmlFor="income">Income</label>
-                                <input className="d-block border-2 my-auto ms-2" type="radio" name="operation" id="income" value="0"/>
+                                <input className="d-block border-2 my-auto ms-2" type="radio" name="operation" id="income" value="0" required/>
                             </div>
                             <div className="d-flex ps-5">
                                 <label className="font-black my-auto font-poppins" name="expense" htmlFor="expense">Expense</label>
-                                <input className="d-block border-2 my-auto ms-2" type="radio" name="operation" id="expense" value="1" />
+                                <input className="d-block border-2 my-auto ms-2" type="radio" name="operation" id="expense" value="1" required/>
                             </div>
                         </div>
                     )}                   
                     <div className="text-end">
                         <button type="submit" className="border-0 mt-4 mb-2 p-2 button-send font-poppins me-3" 
-                         onClick={ () => editMode ? changeHistory() : addHistory() } >
+                         onClick={ () =>  checkCompletedInputs() ?  (editMode ? changeHistory() : addHistory()) : (" ")} >
                         {editMode ? "Save changes" : "Add new"}
                         </button>
                     </div>
@@ -270,7 +276,8 @@ const Operations = () => {
                                         </div>
                                     )
                                 }
-                                ))) : ( 
+                                ))
+                            ) : ( 
                                     <div>
                                         <h1 className='text-center font-gray mt-5 pt-5'>There aren't operations.</h1>
                                     </div> 

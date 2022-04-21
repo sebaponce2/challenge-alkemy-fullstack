@@ -43,8 +43,11 @@ const Home = () => {
     
 
     function getLastTenOperations(data){
-        if (data === 0) {
-            return;
+        if (data === 0) return;
+        
+        if((data.history.length - 10) < 0){
+            const index = 0;
+            setHistory(data.history.splice(index, 10));
         }else {
             const index = data.history.length - 10;
             setHistory(data.history.splice(index, 10));

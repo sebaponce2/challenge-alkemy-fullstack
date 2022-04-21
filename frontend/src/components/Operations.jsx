@@ -5,11 +5,13 @@ import { IoCloseSharp } from "react-icons/io5";
 import { FiEdit } from "react-icons/fi";
 import Cookies from "universal-cookie";
 import swal from 'sweetalert';
+
 // Css imports
 import "../css/Operations.css";
 
-const Operations = () => {
 
+const Operations = () => {
+    
     const cookies = new Cookies();
     const idUser = cookies.get("idUser");
     
@@ -24,14 +26,14 @@ const Operations = () => {
 
 
     useEffect(() => {
-        const getHistory =  async () => {
+        const getHistory = async () => {
 
             try {
                 const res = await fetch(`http://localhost:8080/newOperation/${idUser}`, {
                     method: 'GET',   
                     headers: {
-                            'Content-Type': 'application/json',
-                            'Access-Control-Allow_Origin': 'localhost:8080'
+                        'Content-Type': 'application/json',
+                        'Access-Control-Allow_Origin': 'localhost:8080'
                     }, 
                     mode: 'cors'
                 });
@@ -49,8 +51,9 @@ const Operations = () => {
         getHistory();
     }, [idUser]);
 
-    const addHistory = async () => {
 
+    const addHistory = async () => {
+        successPost(); 
         try {
             const res = await fetch("http://localhost:8080/newOperation/", {
                 method: 'POST',
@@ -71,7 +74,7 @@ const Operations = () => {
     }
 
     const changeHistory = async() => {
-
+        successChanges();
         try {
             const res = await fetch("http://localhost:8080/newOperation/", {
                 method: 'PATCH',
@@ -141,6 +144,24 @@ const Operations = () => {
         });
     }   
 
+
+    function successPost() {
+        swal({
+            title: "Success operation!",
+            text: " ",
+            icon: "success",
+            buttons: false
+        });
+    }
+
+    function successChanges() {
+        swal({
+            title: "Success changes!",
+            text: " ",
+            icon: "success",
+            buttons: false
+        });
+    }
 
     return ( 
         <>
@@ -213,9 +234,11 @@ const Operations = () => {
                                 <div key={item.id}>
                                     <hr className="w-100 font-black my-0"/>
                                     <div className="d-flex py-2">
+
                                         <div className="sizing-operation-amount my-auto text-center">
                                             <p className={ (item.operation === 0) ? ("fw-bold my-auto font-green font-poppins") : ("fw-bold my-auto font-red font-poppins") }>{item.operation === 0 ? "Income" : "Expense"}</p>
                                         </div>
+
                                         <div className="d-md-flex sizing-date-concept text-center font-poppins text-center font-gray-dark">
                                             <div className="w-100 my-auto text-center">
                                                 <p className="fw-bold my-auto">{item.date}</p>
@@ -224,6 +247,8 @@ const Operations = () => {
                                                 <p className="fw-bold my-auto">{item.concept}</p>
                                             </div>
                                         </div>
+
+                                        
                                         <div className="d-flex my-auto font-gray-dark sizing-operation-amount text-center">
                                             <div className="sizing-amount my-auto">
                                                 <p className="fw-bold my-auto py-2 font-poppins text-center my-auto">${item.amount}</p>

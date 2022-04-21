@@ -17,12 +17,15 @@ const Navbar = () =>{
         }
     }
 
+    const name = cookies.get("name");
+    const lastName = cookies.get("lastName");
+
     return ( 
         <>
             {cookies.get("username") ? (
                 <div className="navbar navbar-light bg-purple-dark px-3 fixed-navbar">
                     <div className="container-fluid d-flex justify-content-between container-navbar">
-                    <Link to="/" className="text-decoration-none"><p className="navbar-brand mb-0 h1 font-poppins font-white fw-bold">{`${cookies.get("name")} ${cookies.get("lastName")}`}</p></Link>
+                    <Link to="/" className="text-decoration-none"><p className="navbar-brand mb-0 h1 font-poppins font-white fw-bold">{`${name} ${lastName}`}</p></Link>
                         <div>
                             <ul className="navbar-nav">
                                 <div className="nav-link active font-white">

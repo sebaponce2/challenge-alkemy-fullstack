@@ -29,6 +29,7 @@ const Login = () => {
                 mode:"cors"
             });
             const data = await res.json();
+            
 
             if (data.isUser) {
                 cookies.set(

@@ -29,7 +29,7 @@ const Operations = () => {
         const getHistory = async () => {
 
             try {
-                const res = await fetch(`http://localhost:8080/newOperation/${idUser}`, {
+                const res = await fetch(`http://localhost:8080/${idUser}`, {
                     method: 'GET',   
                     headers: {
                         'Content-Type': 'application/json',
@@ -53,7 +53,6 @@ const Operations = () => {
 
 
     const addHistory = async () => {
-        successPost(); 
         try {
             const res = await fetch("http://localhost:8080/newOperation/", {
                 method: 'POST',
@@ -64,17 +63,16 @@ const Operations = () => {
                 },
                 mode: "cors" 
             });
-
+            
             const data = res.json();
             setHistory(data);
-
+            
         } catch (error) {
             console.log(error);
         }
     }
 
-    const changeHistory = async() => {
-        successChanges();
+    const changeHistory = async () => {
         try {
             const res = await fetch("http://localhost:8080/newOperation/", {
                 method: 'PATCH',
@@ -85,10 +83,10 @@ const Operations = () => {
                 },
                 mode: "cors" 
             });
-
+            
             const data = await res.json();
             setHistory(data);
-
+            
         } catch (error) {
             console.log(error);
         }
@@ -124,7 +122,37 @@ const Operations = () => {
         setAmount(amount);
     }
 
-    const handlerDelete = (idOperation) => {
+    
+    function successPost(e) {
+        e.preventDefault();
+        swal({
+            title: "Success operation!",
+            text: " ",
+            icon: "success",
+            buttons: false
+        });
+        addHistory();
+        setTimeout(() => {
+            document.location.reload();
+        }, 500);
+    }
+
+    function successChanges(e){
+        e.preventDefault();
+        swal({
+            title: "Success changes!",
+            text: " ",
+            icon: "success",
+            buttons: false
+        });
+        changeHistory();
+        setTimeout(() => {
+            document.location.reload();
+        }, 500);
+    }
+
+    function handlerDelete(e, idOperation) {
+        e.preventDefault();
         setIdOperation(idOperation);
         swal({
             title: "Are you sure?",
@@ -139,29 +167,12 @@ const Operations = () => {
               swal("Operation deleted.", {
                 icon: "success",
               });
-              window.location.assign('/newOperation');
             }
         });
+        setTimeout(() => {
+            document.location.reload();
+        }, 1500);
     }   
-
-
-    function successPost() {
-        swal({
-            title: "Success operation!",
-            text: " ",
-            icon: "success",
-            buttons: false
-        });
-    }
-
-    function successChanges() {
-        swal({
-            title: "Success changes!",
-            text: " ",
-            icon: "success",
-            buttons: false
-        });
-    }
 
     const checkCompletedInputs = () => {
         if (concept && amount && date && operation >= 0) return true;
@@ -176,7 +187,7 @@ const Operations = () => {
             </div>
             <h1 className="py-5 text-center font-poppins" id="edit">Create a new operation</h1>
             <section className="bg-white form-style mb-5 p-3 mx-sm-3a">
-                <form className="m-auto" action='/newOperation'>
+                <form className="m-auto" onSubmit={(e) =>  checkCompletedInputs() ?  (editMode ? successChanges(e) : successPost(e)) : (" ")}>
                     <label className="d-block font-black font-poppins fw-bold pb-1 pt-4">Concept</label>
                     <input className="d-block border-2 w-100 p-2" type="text" value={ concept } onChange={(e) => setConcept(e.target.value)} placeholder="Salary" required/>
                     <label className="d-block font-black font-poppins fw-bold pb-1 pt-4">Amount</label>
@@ -201,8 +212,7 @@ const Operations = () => {
                         </div>
                     )}                   
                     <div className="text-end">
-                        <button type="submit" className="border-0 mt-4 mb-2 p-2 button-send font-poppins me-3" 
-                         onClick={ () =>  checkCompletedInputs() ?  (editMode ? changeHistory() : addHistory()) : (" ")} >
+                        <button className="border-0 mt-4 mb-2 p-2 button-send font-poppins me-3">
                         {editMode ? "Save changes" : "Add new"}
                         </button>
                     </div>
@@ -229,7 +239,6 @@ const Operations = () => {
                         <div className="font-purple-black my-auto">
                             <p>a</p>
                         </div>
-
                     </div>
                 </div>
                 <div className="bg-white table-p">
@@ -247,7 +256,6 @@ const Operations = () => {
                                                 <div className="sizing-operation-amount my-auto text-center">
                                                     <p className={ (item.operation === 0) ? ("fw-bold my-auto font-green font-poppins") : ("fw-bold my-auto font-red font-poppins") }>{item.operation === 0 ? "Income" : "Expense"}</p>
                                                 </div>
-        
                                                 <div className="d-md-flex sizing-date-concept text-center font-poppins text-center font-gray-dark">
                                                     <div className="w-100 my-auto text-center">
                                                         <p className="fw-bold my-auto">{item.date}</p>
@@ -256,8 +264,6 @@ const Operations = () => {
                                                         <p className="fw-bold my-auto">{item.concept}</p>
                                                     </div>
                                                 </div>
-        
-                                                
                                                 <div className="d-flex my-auto font-gray-dark sizing-operation-amount text-center">
                                                     <div className="sizing-amount my-auto">
                                                         <p className="fw-bold my-auto py-2 font-poppins text-center my-auto">${item.amount}</p>
@@ -266,7 +272,7 @@ const Operations = () => {
                                                         <a href="#edit" onClick={()=> getSavedValues(true, item.id, item.operation, item.date, item.concept, item.amount)}>
                                                             <p className="w-25 fs-4 my-auto font-gray pb-2 change"><FiEdit /></p>
                                                         </a>
-                                                        <a onClick={() => handlerDelete(item.id)}>
+                                                        <a onClick={(e) => handlerDelete(e, item.id)}>
                                                             <p className="w-25 fs-4 px-1 my-auto font-gray pb-2 delete"><IoCloseSharp/></p>
                                                         </a>
                                                     </div>
@@ -283,7 +289,6 @@ const Operations = () => {
                                     </div> 
                                 )
                         )
-                        
                     }
                 </div>
             </section>

@@ -3,11 +3,11 @@ const mysql = require('mysql');
 module.exports.request = (query) => new Promise((res, rej) => {
 
     const connection = mysql.createConnection({
-        host: 'db4free.net',
+        host: 'sql10.freesqldatabase.com',
         port: 3306,
-        user: 'challengealkemy1',
-        password: 'ponce1234',
-        database: 'challengealkemy1'
+        user: 'sql10487635',
+        password: 'ARa6Ife6xC',
+        database: 'sql10487635'
     });
 
     connection.query(query, (error, results, fields) => {

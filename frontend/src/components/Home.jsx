@@ -56,6 +56,9 @@ const Home = () => {
 
     function getCurrentBalance(data) {
         let accumulator = 0;
+        if (data.history == 0) {
+            return;
+        }
 
         data.history.forEach((item) => {
             if (item.operation) {

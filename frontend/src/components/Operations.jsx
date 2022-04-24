@@ -22,6 +22,7 @@ const Operations = () => {
     const [date, setDate] = useState("");
     const [concept, setConcept] = useState("");
     const [amount, setAmount] = useState(0);
+    const[submitOperation, setSubmitOperation] = useState(true);
 
 
 
@@ -125,6 +126,7 @@ const Operations = () => {
     
     function successPost(e) {
         e.preventDefault();
+        setSubmitOperation(false);
         swal({
             title: "Success operation!",
             text: " ",
@@ -187,7 +189,11 @@ const Operations = () => {
             </div>
             <h1 className="py-5 text-center font-poppins" id="edit">Create a new operation</h1>
             <section className="bg-white form-style mb-5 p-3 mx-sm-3a">
-                <form className="m-auto" onSubmit={(e) =>  checkCompletedInputs() ?  (editMode ? successChanges(e) : successPost(e)) : (" ")}>
+                <form className="m-auto" onSubmit={(e) => checkCompletedInputs() ? 
+                    editMode ? (successChanges(e)) : (submitOperation ? successPost(e) : e => e.preventDefault()) 
+                        : 
+                    " " }
+                >
                     <label className="d-block font-black font-poppins fw-bold pb-1 pt-4">Concept</label>
                     <input className="d-block border-2 w-100 p-2" type="text" value={ concept } onChange={(e) => setConcept(e.target.value)} placeholder="Salary" required/>
                     <label className="d-block font-black font-poppins fw-bold pb-1 pt-4">Amount</label>

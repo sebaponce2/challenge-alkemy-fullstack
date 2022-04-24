@@ -55,7 +55,7 @@ const Login = () => {
         <>
             <section style={{height: '100vh'}}>
                 <div className="mt-10">
-                    <form className="login-form my-auto p-5" onSubmit={submitHandler}>
+                    <form className="login-form my-auto p-5" onSubmit={(e) => submitHandler(e)}>
                     <h2 className="fw-bold text-center font-poppins font-black pb-4">Login</h2>
                         <label className="d-block fw-bold text-center font-poppins font-black mt-4 mb-2" htmlFor="mail">Email</label>
                         <input className="d-block w-100 p-2 px-4 font-poppins my-auto text-center" type="email" name="mail" placeholder="Email" onChange={(e) => {setEmail(e.target.value)}} required/>

@@ -38,9 +38,9 @@ const Login = () => {
                     {maxAge: msToDaysParser(3)},
                     {path: "/"}
                 );
-                cookies.set("name", data.name, {path: "/"});
-                cookies.set("lastName", data.last_name, {path: "/"});
-                cookies.set("idUser", data.id, {path: "/"});
+                cookies.set("name", data.name, {maxAge: msToDaysParser(3)}, {path: "/"});
+                cookies.set("lastName", data.last_name, {maxAge: msToDaysParser(3)}, {path: "/"});
+                cookies.set("idUser", data.id, {maxAge: msToDaysParser(3)}, {path: "/"});
 
                 window.location.assign("/");
             }else alert("Email or password incorrect.");

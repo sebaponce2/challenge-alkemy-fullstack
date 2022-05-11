@@ -16,7 +16,7 @@ const Home = () => {
         const getHistory = async () => {
             
             try {
-                const res = await fetch(`http://localhost:8080/${idUser}`,{
+                const res = await fetch(`https://api-alkemy-challenge-fullstack.herokuapp.com/${idUser}`,{
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',

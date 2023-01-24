@@ -6,7 +6,7 @@ module.exports.register = async (name, lastName, email, password) => {
     const hashedPassword = hashPassword(password);
 
     const verifyUser = await request(`
-        SELECT * FROM users WHERE email = "${email}"
+        SELECT * FROM users_challenge WHERE email = "${email}"
     `);
 
     if (verifyUser != 0) {
@@ -16,7 +16,7 @@ module.exports.register = async (name, lastName, email, password) => {
     }
 
     const user = await request(`
-        INSERT INTO users (name, last_name, email, password)
+        INSERT INTO users_challenge (name, last_name, email, password)
         VALUE ('${name}', '${lastName}', '${email}', '${hashedPassword}')
     `)
 
@@ -29,18 +29,19 @@ module.exports.register = async (name, lastName, email, password) => {
 module.exports.login = async (email, password) => {
 
     const user = await request(`
-        SELECT * FROM users WHERE email = '${email}'
+        SELECT * FROM users_challenge WHERE email = '${email}'
     `);
 
 
     if (user && comparePassword(password, user.password)) {
         delete user.password
+        console.log("misma contraseña");
         return {
             isUser: true,
             ...user
         }
     }
-
+    console.log("contraseña incorrecta");
     return {
         isUser: false
     }

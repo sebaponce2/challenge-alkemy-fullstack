@@ -19,7 +19,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const res = await fetch("https://api-challenge-alkemy-1r0ei071q-sebaponce2.vercel.app/login", {
+      const res = await fetch("https://api-challenge-alkemy.vercel.app/login", {
         method: "POST",
         body: JSON.stringify({ email, password }),
         headers: {

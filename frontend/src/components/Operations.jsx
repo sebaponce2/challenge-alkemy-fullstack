@@ -24,7 +24,7 @@ const Operations = () => {
   useEffect(() => {
     const getHistory = async () => {
       try {
-        const res = await fetch(`https://api-challenge-alkemy-1r0ei071q-sebaponce2.vercel.app/${idUser}`, {
+        const res = await fetch(`https://api-challenge-alkemy.vercel.app/${idUser}`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -47,7 +47,7 @@ const Operations = () => {
 
   const addHistory = async () => {
     try {
-      const res = await fetch("https://api-challenge-alkemy-1r0ei071q-sebaponce2.vercel.app/newOperation/", {
+      const res = await fetch("https://api-challenge-alkemy.vercel.app/newOperation/", {
         method: "POST",
         body: JSON.stringify({ idUser, operation, date, concept, amount }),
         headers: {
@@ -66,7 +66,7 @@ const Operations = () => {
 
   const changeHistory = async () => {
     try {
-      const res = await fetch("https://api-challenge-alkemy-1r0ei071q-sebaponce2.vercel.app/newOperation/", {
+      const res = await fetch("https://api-challenge-alkemy.vercel.app/newOperation/", {
         method: "PATCH",
         body: JSON.stringify({ idOperation, date, concept, amount }),
         headers: {
@@ -85,7 +85,7 @@ const Operations = () => {
 
   const deleteHistory = async (idOperation) => {
     try {
-      const res = await fetch(`https://api-challenge-alkemy-1r0ei071q-sebaponce2.vercel.app/newOperation/`, {
+      const res = await fetch(`https://api-challenge-alkemy.vercel.app/newOperation/`, {
         method: "DELETE",
         body: JSON.stringify({ idOperation }),
         headers: {

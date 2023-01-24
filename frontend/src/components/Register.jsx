@@ -19,7 +19,7 @@ const Register = () => {
     if (password === samePassword) {
       setSubmitRegister(false);
       try {
-        const res = await fetch("https://api-challenge-alkemy-1r0ei071q-sebaponce2.vercel.app/register", {
+        const res = await fetch("https://api-challenge-alkemy.vercel.app/register", {
           method: "POST",
           body: JSON.stringify({ name, lastName, email, password }),
           headers: {
